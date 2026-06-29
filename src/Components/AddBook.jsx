@@ -1,7 +1,7 @@
 const AddBook = () => {
   return (
     <>
-      <div>add book</div>
+      <div>add book  </div>
     </>
   );
 };
