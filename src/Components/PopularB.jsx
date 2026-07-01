@@ -1,9 +1,10 @@
-import { bookArr } from "../Utils/bookData";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const PopularB = () => {
   //Container: my-9 px-6 ,subContainer: mt-5
-  console.log(bookArr)
+  const bookArr = useSelector((store) => store.cart.bookItems);
+
   const filteredPopularBooks = bookArr.filter((item) => item.popular === true);
 
   return (
@@ -14,8 +15,8 @@ const PopularB = () => {
       <div className="books grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center items-center">
         {filteredPopularBooks.map((item) => {
           return (
-            <Link to={`/bookdetails/${item.id}`}>
-            <div className="mx-auto book border border-gray-300 p-6 w-65 h-110 flex flex-col justify-center gap-1.5 cursor-pointer hover:bg-gray-100 transition-all duration-500 ease-in-out max-md:w-75 mb-2 max-sm:w-90 max-sm:h-135" key={item.id}>
+            <Link to={`/bookdetails/${item.id}`} key={item.id}>
+            <div className="mx-auto book border border-gray-300 p-6 w-65 h-110 flex flex-col justify-center gap-1.5 cursor-pointer hover:bg-gray-100 transition-all duration-500 ease-in-out max-md:w-75 mb-2 max-sm:w-90 max-sm:h-135">
               <div className="img">
                 <img
                   src={`${item.image}`}

@@ -10,8 +10,6 @@ const BrowseBook = () => {
 
   const { category } = useParams();
 
-  console.log(term);
-
   useEffect(() => {
     setSearch([]);
   }, [category, setSearch]);
@@ -28,7 +26,6 @@ const BrowseBook = () => {
       finalArr && setSearch(finalArr);
     }
     setTerm("");
-    console.log(finalArr);
   }
 
   return (

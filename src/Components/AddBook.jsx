@@ -1,6 +1,14 @@
 import { useRef, useState } from "react";
+import { addItem } from "../Utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddBook = () => {
+  const dispatch = useDispatch();
+  const bookArr = useSelector((store) => store.cart.bookItems);
+
+  const navigate = useNavigate();
+
   const bCategory = useRef(null);
   const bTitle = useRef(null);
   const bAuthor = useRef(null);
@@ -15,8 +23,6 @@ const AddBook = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(bCategory.current.value);
-    console.log(bTitle.current.value);
 
     function success(msg, val) {
       checkout = true;
@@ -117,15 +123,38 @@ const AddBook = () => {
         return true;
       }
     }
-
     let hPrice = handlePrice();
     let hImg = handleImg();
     let hDesc = handleDesc();
     let hAuthor = handleAuthorName();
     let hTitle = handleTitle();
     let hCategory = handleCategory();
+    const newId =
+      bookArr.reduce((maxId, item) => Math.max(maxId, Number(item.id) || 0), 0) + 1;
+
     if (hCategory && hTitle && hAuthor && hDesc && hImg && hPrice) {
       success("Form submitted successfully..", true);
+      dispatch(
+        addItem({
+          id: newId,
+          category: bCategory.current.value,
+          popular: true,
+          title: bTitle.current.value,
+          author: bAuthor.current.value,
+          description: bDesc.current.value,
+          image: bImage.current.value,
+          price: bPrice.current.value,
+        }),
+      );
+      bCategory.current.value = "";
+      bTitle.current.value = "";
+      bAuthor.current.value = "";
+      bDesc.current.value = "";
+      bImage.current.value = "";
+      bPrice.current.value = "";
+      setTimeout(() => {
+        navigate("/browsebooks");
+      }, 1000);
     }
   }
 

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { useParams } from "react-router-dom";
-import { bookArr } from "../Utils/bookData";
+import { useParams, useSearchParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BookDetails = () => {
+  const bookArr = useSelector((store) => store.cart.bookItems);
+
   const [count, setCount] = useState(1);
 
   function handlePlus() {
@@ -20,7 +22,6 @@ const BookDetails = () => {
   const { id } = useParams();
 
   const newArr = bookArr.filter((item) => item.id == id);
-  console.log(id);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import "@flaticon/flaticon-uicons/css/all/all.css";
-import "../App.css";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   
@@ -17,7 +17,7 @@ const Category = () => {
             Science Fiction
           </div>
           <div className="hover:underline hover:text-gray-700 transition-all duration-300 ease-in-out cursor-pointer">
-            Shop Now
+            <Link to="/browsebooks/fiction">Shop Now</Link>
           </div>
         </div>
         <div className="card w-[46%] h-40 flex flex-col justify-center gap-2 px-8 bg-blue-100">
@@ -26,7 +26,7 @@ const Category = () => {
           </div>
           <div className="text-xl font-medium text-gray-800">Non Fiction</div>
           <div className="hover:underline hover:text-gray-700 transition-all duration-300 ease-in-out cursor-pointer">
-            Shop Now
+            <Link to="/browsebooks/non-fiction">Shop Now</Link>
           </div>
         </div>
         <div className="card w-[46%] h-40 flex flex-col justify-center gap-2 px-8 bg-violet-100">
@@ -35,7 +35,7 @@ const Category = () => {
           </div>
           <div className="text-xl font-medium text-gray-800">Documentary</div>
           <div className="hover:underline hover:text-gray-700 transition-all duration-300 ease-in-out cursor-pointer">
-            Shop Now
+            <Link to="/browsebooks/documentary">Shop Now</Link>
           </div>
         </div>
         <div className="card w-[46%] h-40 flex flex-col justify-center gap-2 px-8 bg-amber-100">
@@ -44,7 +44,7 @@ const Category = () => {
           </div>
           <div className="text-xl font-medium text-gray-800">Literary</div>
           <div className="hover:underline hover:text-gray-700 transition-all duration-300 ease-in-out cursor-pointer">
-            Shop Now
+             <Link to="/browsebooks/literary">Shop Now</Link>
           </div>
         </div>
       </div>
