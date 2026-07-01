@@ -32,18 +32,20 @@ const appRoute = createBrowserRouter([
         path: "/browsebooks",
         element: <BrowseBook />,
       },
+      //this using dynamic routing
       {
         path: "/browsebooks/:category",
         element: <BrowseBook />,
       },
+      //this using dynamic routing
       {
         path: "/bookdetails/:id",
         element: <BookDetails />,
       },
       {
         path: "/addbook",
-        element: <AddBook />
-      }
+        element: <AddBook />,
+      },
     ],
   },
 ]);

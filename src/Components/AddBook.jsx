@@ -21,6 +21,7 @@ const AddBook = () => {
 
   let checkout = Boolean(message);
 
+  //below function is perform proper form validation before final submission of book in booklist..
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -130,7 +131,10 @@ const AddBook = () => {
     let hTitle = handleTitle();
     let hCategory = handleCategory();
     const newId =
-      bookArr.reduce((maxId, item) => Math.max(maxId, Number(item.id) || 0), 0) + 1;
+      bookArr.reduce(
+        (maxId, item) => Math.max(maxId, Number(item.id) || 0),
+        0,
+      ) + 1;
 
     if (hCategory && hTitle && hAuthor && hDesc && hImg && hPrice) {
       success("Form submitted successfully..", true);

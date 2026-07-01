@@ -1,6 +1,7 @@
 import { useRouteError } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+//Display Error component that render when user enter wrong route/path
 const DisplayError = () => {
   const routeErr = useRouteError();
   console.log(routeErr);
@@ -12,10 +13,13 @@ const DisplayError = () => {
         </h1>
         <h3 className="text-xl">{routeErr.data}</h3>
         <p className="text-lg">
-          The requested resource could not found on this server so try different route or go back to home page.
+          The requested resource could not found on this server so try different
+          route or go back to home page.
         </p>
         <Link to="/">
-        <button className="bg-blue-600 text-white px-3 py-1 cursor-pointer hover:bg-blue-500 transition-all duration-300 ease-in">Go to Home</button>
+          <button className="bg-blue-600 text-white px-3 py-1 cursor-pointer hover:bg-blue-500 transition-all duration-300 ease-in">
+            Go to Home
+          </button>
         </Link>
       </div>
     </div>

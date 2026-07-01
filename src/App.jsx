@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      {/*Using provider component to provide store to the entire components.*/}
       <Provider store={bookStore}>
         <Header />
         <Outlet context={{ term, setTerm, search, setSearch }} />
