@@ -10,11 +10,13 @@ import BrowseBook from "./Components/BrowseBook.jsx";
 import Categories from "./Components/Categories.jsx";
 import BookDetails from "./Components/BookDetails.jsx";
 import AddBook from "./Components/AddBook.jsx";
+import DisplayError from "./Components/DisplayError.jsx";
 
 const appRoute = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <DisplayError />,
     children: [
       {
         path: "/",

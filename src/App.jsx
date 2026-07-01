@@ -6,7 +6,7 @@ import PopularB from "./Components/PopularB";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import bookStore from "./Utils/bookStore";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 
 function App() {
   const [term, setTerm] = useState("");
